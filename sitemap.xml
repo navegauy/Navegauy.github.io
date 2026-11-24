@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://navegauy.github.io/</loc></url>
-  <url><loc>https://navegauy.github.io/docencia-de-vela.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://navegauy.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://navegauy.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/"/></url>
+  <url><loc>https://navegauy.github.io/docencia-de-vela.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://navegauy.github.io/docencia-de-vela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/docencia-de-vela.html"/></url>
+  <url><loc>https://navegauy.github.io/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://navegauy.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/"/></url>
+  <url><loc>https://navegauy.github.io/en/docencia-de-vela.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://navegauy.github.io/docencia-de-vela.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/docencia-de-vela.html"/></url>
 </urlset>

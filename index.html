@@ -6,6 +6,9 @@
 <title>Navegauy</title>
 <meta name="description" content="Toda la vela de Uruguay en un solo lugar: escuelas, agenda de regatas, campeonatos, clubes y servicios náuticos, siempre con su fuente.">
 <link rel="canonical" href="https://navegauy.github.io/">
+<link rel="alternate" hreflang="es" href="https://navegauy.github.io/">
+<link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://navegauy.github.io/">
 <meta property="og:title" content="Navegauy">
 <meta property="og:description" content="Toda la vela de Uruguay en un solo lugar: dónde aprender, cuándo competir y cómo salir al agua.">
 <meta property="og:url" content="https://navegauy.github.io/">
@@ -56,6 +59,8 @@ section{display:flex;flex-direction:column;gap:10px}
 .sub{background:var(--surface);border:2px solid var(--sea);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
 .note{font-size:14px;color:var(--muted)}
 footer{font-size:13px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:14px}
+.brand{flex-wrap:wrap}
+.lang{margin-left:auto;font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--sea);border-radius:999px;padding:6px 12px;text-decoration:none}
 </style>
 </head>
 <body>
@@ -69,6 +74,7 @@ footer{font-size:13px;color:var(--muted);text-align:center;border-top:1px solid 
         <path d="M12 41 Q20 46 28 41 T44 41" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       </svg>
       <h1>Navega<span>uy</span></h1>
+      <a class="lang" href="en/" hreflang="en" lang="en">English</a>
     </div>
     <p class="lede">Toda la vela de Uruguay en un solo lugar: dónde aprender, cuándo competir y cómo salir al agua.</p>
     <div class="cta">
@@ -99,7 +105,7 @@ footer{font-size:13px;color:var(--muted);text-align:center;border-top:1px solid 
     </div>
   </section>
 
-  <footer>Navegauy · Cada dato con su fuente · Un proyecto de Ignacio Porrini</footer>
+  <footer>Navegauy · Cada dato con su fuente · Un proyecto de Ignacio Porrini · <a href="en/">English</a></footer>
 </div>
 <script>
 const M=['ene','feb','mar','abr','may','jun','jul','ago','set','oct','nov','dic'];

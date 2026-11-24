@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" href="favicon.ico">
 <link rel="canonical" href="https://navegauy.github.io/docencia-de-vela.html">
+<link rel="alternate" hreflang="es" href="https://navegauy.github.io/docencia-de-vela.html">
+<link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/docencia-de-vela.html">
+<link rel="alternate" hreflang="x-default" href="https://navegauy.github.io/docencia-de-vela.html">
 <meta name="author" content="Ignacio Porrini">
 <meta property="og:url" content="https://navegauy.github.io/docencia-de-vela.html">
 <meta property="og:type" content="website">
@@ -73,7 +76,7 @@ footer{font-size:13px;color:var(--muted);text-align:center}
 <body>
 <div class="wrap">
   <header style="display:flex;flex-direction:column;gap:8px">
-    <p class="eyebrow"><a href="./" style="color:inherit">Navegauy</a> · Red de profes de navegación a vela</p>
+    <p class="eyebrow"><a href="./" style="color:inherit">Navegauy</a> · Red de profes de navegación a vela · <a href="en/docencia-de-vela.html" hreflang="en" lang="en" style="color:inherit">English</a></p>
     <h1>Docencia de Vela Uruguay</h1>
     <p class="lede">Dónde aprender, dónde enseñar, dónde competir y a quién consultar. Cada dato tiene su enlace a la fuente original: ante la duda, manda la fuente.</p>
   </header>
@@ -189,7 +192,7 @@ footer{font-size:13px;color:var(--muted);text-align:center}
     <p class="note">Los campeonatos completos están en <a href="https://viramos.com/championships/all" target="_blank" rel="noopener">Viramos</a> y en <a href="https://mateovidal.com/" target="_blank" rel="noopener">Cabo</a>. Esta agenda cubre todo lo demás y enlaza a esas fuentes.</p>
   </section>
 
-  <footer><a href="./">Navegauy</a> · Mantiene Ignacio Porrini, instructor de vela. Datos revisados el 23/11/2026. ¿Algo cambió o falta? La fuente original siempre tiene la última palabra.</footer>
+  <footer><a href="./">Navegauy</a> · Mantiene Ignacio Porrini, instructor de vela. Datos revisados el 23/11/2026. ¿Algo cambió o falta? La fuente original siempre tiene la última palabra. · <a href="en/docencia-de-vela.html">English</a></footer>
 </div>
 
 <script>
@@ -197,7 +200,7 @@ const ESCUELAS=[
  {n:'Yacht Club Uruguayo · Instituto Náutico',d:'Montevideo',z:'Puerto del Buceo',t:'Vela, navegación y actividades náuticas para todas las edades',c:[['tel','+598 99 259 782'],['tel','+598 2622 1221'],['mail','info@ycu.org.uy']],s:['ycu.org.uy/instituto_nautico','https://ycu.org.uy/instituto_nautico']},
  {n:'Nautilus Yachting Club',d:'Montevideo',z:'Rambla Gandhi 530, Punta Carretas',t:'Náutica, regatas y escuela',c:[['wa','095 661 207'],['mail','nautica@nyc.com.uy'],['tel','+598 2710 1149']],s:['nyc.com.uy','https://nyc.com.uy/']},
  {n:'Full Sailing (Centro Náutico de Vela Completa)',d:'Montevideo',z:'Club Náutico de Carrasco y Punta Gorda',t:'Cursos de vela y windsurf de 5 clases; alquiler de veleros, tablas, kayaks y SUP',c:[['tel','+598 99 278 878'],['mail','lucia@fullsailing.com.uy']],s:["Guru'Guay",'https://www.guruguay.com/es/alquiler-de-tabla-de-barco/']},
- {n:'Punta Brava Wind & SUP',d:'Montevideo',z:'',t:'Escuela bilingüe (español e inglés) de windsurf y SUP: clases de vela, windsurf y SUP, y travesías en SUP. Bilingual school: lessons in English available.',c:[['wa','099 249 467'],['web','Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']],s:['Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']},
+ {n:'Punta Brava Wind & SUP',d:'Montevideo',z:'',t:'Escuela bilingüe (español e inglés) de windsurf y SUP: clases de vela, windsurf y SUP, y travesías en SUP. Bilingual school: lessons in English available.',en:true,c:[['wa','099 249 467'],['web','Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']],s:['Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']},
  {n:'Club La Estacada · Escuela de vela',d:'Montevideo',z:'Punta Carretas',t:'Escuela de vela. Club fundado el 1 de diciembre de 1940.',c:[['tel','2711 9075'],['mail','clubestacada@hotmail.com'],['web','Instagram @clublaestacada','https://instagram.com/clublaestacada'],['web','Facebook de la escuela','https://www.facebook.com/p/Escuela-de-Vela-Club-N%C3%A1utico-La-Estacada-61559034894935/']],s:['clublaestacada.com','https://www.clublaestacada.com/nuestro-club']},
  {n:'ACAL Náutico Club',d:'Montevideo',z:'ubicación a confirmar',t:'Club náutico, sede de la flota 900 de Snipe',c:[['mail','admclub@clubacal.org.uy']],s:['contacto público del club','']},
  {n:'Club Náutico de Carrasco y Punta Gorda',d:'Montevideo',z:'Punta Gorda',t:'Sede del Campeonato Nacional Individual de Optimist 2026 (AUDO 6)',c:[],s:['Viramos','https://viramos.com/championships/all']},
@@ -228,7 +231,7 @@ function link(c){const [k,v,u]=c;if(k==='tel')return `<a href="tel:${v.replace(/
 function src(s){return s[1]?`Fuente: <a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`:`Fuente: ${esc(s[0])}`}
 function render(){const q=$('#q').value.trim().toLowerCase();
  const list=ESCUELAS.filter(e=>(dep==='Todos'||e.d===dep)&&(!q||(e.n+' '+e.d+' '+e.z+' '+e.t).toLowerCase().includes(q)));
- $('#lista').innerHTML=list.length?list.map(e=>`<div class="card"><div class="meta"><span>${esc(e.d)}</span>${e.z?`<span>${esc(e.z)}</span>`:''}</div><h3>${esc(e.n)}</h3><p>${esc(e.t)}</p>${e.c.length?`<div class="contacts">${e.c.map(link).join('')}</div>`:'<p class="note">Contacto: consultar en la sede del club.</p>'}<p class="src">${src(e.s)} · revisado 16/11/2026</p></div>`).join(''):'<p class="note">No hay escuelas con ese filtro todavía.</p>';
+ $('#lista').innerHTML=list.length?list.map(e=>`<div class="card"><div class="meta"><span>${esc(e.d)}</span>${e.z?`<span>${esc(e.z)}</span>`:''}</div><h3>${esc(e.n)}${e.en?' <span class="tag">clases en inglés</span>':''}</h3><p>${esc(e.t)}</p>${e.c.length?`<div class="contacts">${e.c.map(link).join('')}</div>`:'<p class="note">Contacto: consultar en la sede del club.</p>'}<p class="src">${src(e.s)} · revisado 16/11/2026</p></div>`).join(''):'<p class="note">No hay escuelas con ese filtro todavía.</p>';
  document.querySelectorAll('#deptos .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.d===dep))}
 $('#deptos').addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(!b)return;dep=b.dataset.d;render()});
 $('#q').addEventListener('input',render);

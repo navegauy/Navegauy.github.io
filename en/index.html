@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navegauy</title>
+<meta name="description" content="All of Uruguay's sailing in one place: schools, regatta calendar, championships, clubs and marine services, always with their source.">
+<link rel="canonical" href="https://navegauy.github.io/en/">
+<link rel="alternate" hreflang="es" href="https://navegauy.github.io/">
+<link rel="alternate" hreflang="en" href="https://navegauy.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://navegauy.github.io/">
+<meta property="og:title" content="Navegauy">
+<meta property="og:description" content="All of Uruguay's sailing in one place: where to learn, when to race and how to get out on the water.">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://navegauy.github.io/en/">
+<meta property="og:type" content="website">
+<link rel="icon" href="../favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#EEF3F2; --grid:#DDE6E4; --surface:#FFFFFF; --ink:#10262B; --muted:#4D6469; --line:#C7D5D3;
+  --sea:#0E4F73; --sea-ink:#FFFFFF; --buoy:#1F7A4D; --buoy-bg:#E2F2E8; --flag:#B45309;
+  --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A1619; --grid:#122326; --surface:#112428; --ink:#E2EEEF; --muted:#95ADB1; --line:#24414A;
+  --sea:#62B6E0; --sea-ink:#03202E; --buoy:#5CC98E; --buoy-bg:#123020; --flag:#F5B14A; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font:16px/1.5 var(--body);padding:20px 16px 48px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.preview{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--flag);border:1px dashed var(--flag);border-radius:8px;padding:6px 10px;text-align:center}
+header{display:flex;flex-direction:column;gap:10px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:56px;height:56px;flex:none}
+h1{font:700 3.2rem/1 var(--display);margin:0;color:var(--sea);letter-spacing:.01em}
+h1 span{color:var(--buoy)}
+h2{font:700 1.6rem/1.1 var(--display);margin:0}
+h3{font:700 1.25rem/1.15 var(--display);margin:0}
+p{margin:0}
+a{color:var(--sea)}
+.lede{font-size:1.15rem;color:var(--muted);text-wrap:balance}
+.cta{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:10px 16px;border-radius:999px;font-weight:700;text-decoration:none;border:1px solid var(--sea)}
+.btn.primary{background:var(--sea);color:var(--sea-ink)}
+.btn.ghost{background:var(--surface);color:var(--sea)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:4px}
+.tile .ic{font-size:22px}
+.tile p{color:var(--muted);font-size:15px}
+.tile.docencia{border:2px solid var(--buoy)}
+.tag{display:inline-block;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;border-radius:4px;padding:2px 6px;background:var(--buoy-bg);color:var(--buoy);vertical-align:middle}
+section{display:flex;flex-direction:column;gap:10px}
+.events{display:flex;flex-direction:column;gap:8px}
+.ev{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center}
+.date{font:700 1.4rem/1 var(--display);color:var(--sea);text-align:center}
+.date small{display:block;font:500 11px var(--mono);text-transform:uppercase;color:var(--muted);letter-spacing:.05em;margin-top:2px}
+.ev p{color:var(--muted);font-size:14px}
+.sub{background:var(--surface);border:2px solid var(--sea);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.note{font-size:14px;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);text-align:center;border-top:1px solid var(--line);padding-top:14px}
+.brand{flex-wrap:wrap}
+.lang{margin-left:auto;font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--sea);border-radius:999px;padding:6px 12px;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg viewBox="0 0 56 56" aria-hidden="true">
+        <circle cx="28" cy="28" r="27" fill="var(--sea)"/>
+        <path d="M29 10 L29 38 L42 38 Z" fill="#fff"/>
+        <path d="M27 15 L27 38 L16 38 Z" fill="#fff" opacity=".75"/>
+        <path d="M12 41 Q20 46 28 41 T44 41" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <h1>Navega<span>uy</span></h1>
+      <a class="lang" href="../" hreflang="es" lang="es">Español</a>
+    </div>
+    <p class="lede">All of Uruguay's sailing in one place: where to learn, when to race and how to get out on the water.</p>
+    <div class="cta">
+      <a class="btn primary" href="#agenda">See the calendar</a>
+      <a class="btn ghost" href="docencia-de-vela.html#escuelas">I want to learn to sail</a>
+    </div>
+  </header>
+
+  <section id="secciones" aria-label="Sections">
+    <div class="grid">
+      <a class="tile" href="docencia-de-vela.html#escuelas"><span class="ic">⛵</span><h3>Learn</h3><p>Schools by region, summer camps and the Brevet sailing licence.</p></a>
+      <a class="tile" href="docencia-de-vela.html#agenda"><span class="ic">📅</span><h3>Calendar</h3><p>Regattas, anniversaries and championships, with a calendar for your phone.</p></a>
+      <a class="tile" href="docencia-de-vela.html#campeonatos"><span class="ic">🏁</span><h3>Race</h3><p>Championships, active classes and where to find results.</p></a>
+      <a class="tile docencia" href="docencia-de-vela.html"><span class="ic">🧭</span><h3>Docencia de Vela <span class="tag">for instructors</span></h3><p>Sailing instructor network, free tools and job calls.</p></a>
+      <a class="tile" href="docencia-de-vela.html#aniversarios"><span class="ic">⚓</span><h3>Clubs</h3><p>Anniversaries, contacts and a free kit for clubs.</p></a>
+      <a class="tile" href="docencia-de-vela.html#tiendas"><span class="ic">🛒</span><h3>Shops and services</h3><p>Boats, gear, life jackets and sail lofts.</p></a>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <h2>Upcoming dates</h2>
+    <div class="events" id="proximas"><p class="note">Loading dates…</p></div>
+    <p class="note"><a href="docencia-de-vela.html#agenda">See the full calendar</a></p>
+    <div class="sub">
+      <h3>The dates on your phone</h3>
+      <p class="note">Subscribe once and every new regatta shows up by itself in Google Calendar or on your iPhone.</p>
+      <div class="cta"><a class="btn primary" href="docencia-de-vela.html#agenda">📅 Subscribe</a></div>
+    </div>
+  </section>
+
+  <footer>Navegauy · Every fact with its source · A project by Ignacio Porrini · <a href="../">Español</a></footer>
+</div>
+<script>
+const M=['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('../agenda/eventos.json',{cache:'no-cache'}).then(r=>r.json()).then(d=>{
+  const hoy=new Date().toISOString().slice(0,10);
+  const ev=d.eventos.filter(e=>(e.fin||e.inicio)>=hoy).sort((a,b)=>a.inicio.localeCompare(b.inicio)).slice(0,4);
+  const f=e=>{const a=e.inicio.split('-'),b=(e.fin||e.inicio).split('-');const d1=+a[2],d2=+b[2];
+    return a[1]===b[1]?`${d1}${d2!==d1?'–'+d2:''}<small>${M[+a[1]-1]}</small>`:`${d1}<small>${M[+a[1]-1]}</small>`};
+  document.getElementById('proximas').innerHTML=ev.length?ev.map(e=>`<div class="ev"><div class="date">${f(e)}</div><div><h3>${esc((e.en&&e.en.titulo)||e.titulo)}</h3><p>${esc((e.en&&e.en.lugar)||e.lugar)}</p></div></div>`).join(''):'<p class="note">No dates listed yet.</p>';
+}).catch(()=>{document.getElementById('proximas').innerHTML='<p class="note">The calendar could not be loaded. <a href="docencia-de-vela.html#agenda">See the calendar</a></p>'});
+</script>
+</body>
+</html>
