@@ -244,8 +244,9 @@ $('#disc').innerHTML=['Todas',...Object.keys(DISC)].map(k=>`<button class="chip"
 $('#deptos').innerHTML=deps.map(d=>`<button class="chip" aria-pressed="${d===dep}" data-d="${esc(d)}">${esc(d)}</button>`).join('');
 function link(c){const [k,v,u]=c;if(k==='tel')return `<a href="tel:${v.replace(/\s/g,'')}">☎ ${esc(v)}</a>`;if(k==='wa')return `<a href="https://wa.me/598${v.replace(/\D/g,'').replace(/^0/,'')}" target="_blank" rel="noopener">WhatsApp ${esc(v)}</a>`;if(k==='mail')return `<span>${esc(v)}</span>`;return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(v)}</a>`}
 function src(s){return s[1]?`Fuente: <a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`:`Fuente: ${esc(s[0])}`}
-function render(){const q=$('#q').value.trim().toLowerCase();
- const list=ESCUELAS.filter(e=>(dep==='Todos'||e.d===dep)&&(dis==='Todas'||e.k.includes(dis))&&(!q||(e.n+' '+e.d+' '+e.z+' '+e.t+' '+e.k.map(k=>DISC[k]).join(' ')).toLowerCase().includes(q)));
+const norm=t=>String(t).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+function render(){const q=norm($('#q').value.trim());
+ const list=ESCUELAS.filter(e=>(dep==='Todos'||e.d===dep)&&(dis==='Todas'||e.k.includes(dis))&&(!q||norm(e.n+' '+e.d+' '+e.z+' '+e.t+' '+e.k.map(k=>DISC[k]).join(' ')).includes(q)));
  $('#lista').innerHTML=list.length?list.map(e=>`<div class="card"><div class="meta"><span>${esc(e.d)}</span>${e.z?`<span>${esc(e.z)}</span>`:''}<span>${e.k.map(k=>esc(DISC[k])).join(' · ')}</span></div><h3>${esc(e.n)}${e.en?' <span class="tag">clases en inglés</span>':''}</h3><p>${esc(e.t)}</p>${e.c.length?`<div class="contacts">${e.c.map(link).join('')}</div>`:'<p class="note">Contacto: consultar en la sede del club.</p>'}<p class="src">${src(e.s)} · revisado 16/11/2026</p></div>`).join(''):'<p class="note">No hay escuelas con ese filtro todavía.</p>';
  document.querySelectorAll('#deptos .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.d===dep));
  document.querySelectorAll('#disc .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===dis))}
