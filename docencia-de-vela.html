@@ -83,7 +83,7 @@ footer{font-size:13px;color:var(--muted);text-align:center}
 
   <nav class="quick" aria-label="Accesos rápidos">
     <a href="#aniversarios">Aniversarios<small>fechas clave de los clubes</small></a>
-    <a href="#escuelas">Escuelas de vela<small>por departamento</small></a>
+    <a href="#escuelas">Escuelas<small>vela, windsurf, kite y SUP</small></a>
     <a href="#formacion">Formación<small>Brevet, cursos, apps</small></a>
     <a href="#campeonatos">Campeonatos<small>calendario y resultados</small></a>
     <a href="#referentes">Referentes<small>clases y asociaciones</small></a>
@@ -104,9 +104,10 @@ footer{font-size:13px;color:var(--muted);text-align:center}
   </section>
 
   <section id="escuelas">
-    <h2>Escuelas de vela</h2>
+    <h2>Escuelas: vela, windsurf, kite y SUP</h2>
     <p class="note">Para quien quiere aprender o busca dónde dar clases. Escriba siempre a la escuela para confirmar horarios y cupos.</p>
     <input id="q" type="search" placeholder="Buscar por club, ciudad o tipo de clase" aria-label="Buscar escuela">
+    <div class="chips" id="disc" role="group" aria-label="Disciplina"></div>
     <div class="chips" id="deptos" role="group" aria-label="Departamento"></div>
     <div class="cards" id="lista"></div>
     <div class="card" style="border-style:dashed">
@@ -197,23 +198,23 @@ footer{font-size:13px;color:var(--muted);text-align:center}
 
 <script>
 const ESCUELAS=[
- {n:'Yacht Club Uruguayo · Instituto Náutico',d:'Montevideo',z:'Puerto del Buceo',t:'Vela, navegación y actividades náuticas para todas las edades',c:[['tel','+598 99 259 782'],['tel','+598 2622 1221'],['mail','info@ycu.org.uy']],s:['ycu.org.uy/instituto_nautico','https://ycu.org.uy/instituto_nautico']},
- {n:'Nautilus Yachting Club',d:'Montevideo',z:'Rambla Gandhi 530, Punta Carretas',t:'Náutica, regatas y escuela',c:[['wa','095 661 207'],['mail','nautica@nyc.com.uy'],['tel','+598 2710 1149']],s:['nyc.com.uy','https://nyc.com.uy/']},
- {n:'Full Sailing (Centro Náutico de Vela Completa)',d:'Montevideo',z:'Club Náutico de Carrasco y Punta Gorda',t:'Cursos de vela y windsurf de 5 clases; alquiler de veleros, tablas, kayaks y SUP',c:[['tel','+598 99 278 878'],['mail','lucia@fullsailing.com.uy']],s:["Guru'Guay",'https://www.guruguay.com/es/alquiler-de-tabla-de-barco/']},
- {n:'Punta Brava Wind & SUP',d:'Montevideo',z:'',t:'Escuela bilingüe (español e inglés) de windsurf y SUP: clases de vela, windsurf y SUP, y travesías en SUP. Bilingual school: lessons in English available.',en:true,c:[['wa','099 249 467'],['web','Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']],s:['Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']},
- {n:'Swellboards · Escuela de SUP',d:'Montevideo',z:'Playa Honda',t:'Escuela de stand up paddle de Swellboards, marca uruguaya de tablas. Dato de prensa: confirmar horarios y vigencia con la escuela.',c:[],s:['Montevideo Portal','https://www.montevideo.com.uy/Archivo/Stand-up-paddle-uno-de-los-deportes-nauticos-que-mas-crece-en-Uruguay-uc776298']},
- {n:'Club La Estacada · Escuela de vela',d:'Montevideo',z:'Punta Carretas',t:'Escuela de vela. Club fundado el 1 de diciembre de 1940.',c:[['tel','2711 9075'],['mail','clubestacada@hotmail.com'],['web','Instagram @clublaestacada','https://instagram.com/clublaestacada'],['web','Facebook de la escuela','https://www.facebook.com/p/Escuela-de-Vela-Club-N%C3%A1utico-La-Estacada-61559034894935/']],s:['clublaestacada.com','https://www.clublaestacada.com/nuestro-club']},
- {n:'ACAL Náutico Club',d:'Montevideo',z:'ubicación a confirmar',t:'Club náutico, sede de la flota 900 de Snipe',c:[['mail','admclub@clubacal.org.uy']],s:['contacto público del club','']},
- {n:'Club Náutico de Carrasco y Punta Gorda',d:'Montevideo',z:'Punta Gorda',t:'Sede del Campeonato Nacional Individual de Optimist 2026 (AUDO 6)',c:[],s:['Viramos','https://viramos.com/championships/all']},
- {n:'Club de los Balleneros',d:'Maldonado',z:'Punta Ballena',t:'Club náutico con bajada y varada de embarcaciones. Sede de la fecha AUDO 4 de Optimist en 2026.',c:[['tel','+598 4257 9254'],['tel','098 852 498']],s:['clubdelosballeneros.com.uy','https://clubdelosballeneros.com.uy/']},
- {n:'Escuela de Kite y Windsurf Laura',d:'Maldonado',z:'Laguna Garzón',t:'Clases y alquiler de kitesurf y windsurf en la Laguna Garzón. Escuela registrada en IKO (International Kiteboarding Organization).',c:[['web','Ficha y contacto en IKO','https://www.ikointl.com/school/uruguay/maldonado/escuela-de-kite-y-windsurf-laura']],s:['IKO','https://www.ikointl.com/school/uruguay/maldonado/escuela-de-kite-y-windsurf-laura']},
- {n:'Club Náutico Sudestada',d:'Rocha',z:'La Paloma',t:'Regatas, travesías y clases abiertas de deportes náuticos; regata aniversario cada fin de año.',c:[['web','cnsudestada.uy','https://www.cnsudestada.uy/']],s:['Turismo Rocha','https://turismorocha.gub.uy/eventos/2020/11/21/2do-aniversario-de-sudestada-1986']},
- {n:'Yacht Club Punta del Este · Escuela',d:'Maldonado',z:'Punta del Este',t:'Escuela de vela del club',c:[['web','Facebook @ycpeescuela','https://www.facebook.com/ycpeescuela/']],s:['Facebook','https://www.facebook.com/ycpeescuela/']},
- {n:'Yacht Club Paysandú · Escuela de vela',d:'Paysandú',z:'Av. Salto y Costanera',t:'Escuelita de Optimist para niños, cursos certificados para adolescentes y adultos, windsurf. Abierto al público, todo el año.',c:[['wa','096 230 842'],['tel','4722 2059'],['mail','ycpaysandu@gmail.com'],['web','Instagram @ycpaysandu','https://instagram.com/ycpaysandu']],s:['ycp.org.uy','https://ycp.org.uy/vela/escuela-de-vela/']},
- {n:'Club Yachting y Pesca',d:'Colonia',z:'Puerto de Yates de Colonia del Sacramento',t:'Club náutico del puerto de yates de Colonia. Escuela de vela a confirmar con el club.',c:[['tel','+598 4522 6154']],s:['ANP · Puerto de Yates de Colonia','https://anp.com.uy/en/home/ports/marinas/colonia-marina']},
- {n:'Club Náutico Puerto Sauce',d:'Colonia',z:'Juan Lacaze',t:'Puerto deportivo con regatas de vela en enero, febrero y abril, y la Regata del Inmigrante en setiembre. Escuela a confirmar con el club.',c:[],s:['MTOP · Puerto José Carbajal','https://www.gub.uy/ministerio-transporte-obras-publicas/comunicacion/publicaciones/puerto-jose-carbajal-sabalero-juan-lacaze-colonia']},
- {n:'Yacht Club Salto',d:'Salto',z:'Bahía del Durazno, lago de Salto Grande',t:'Club con amarras en el lago de Salto Grande. Escuela de vela a confirmar con el club.',c:[],s:['PredictWind · Yacht Club Salto','https://explore.predictwind.com/es/marinas/uruguay/salto-department/yacht-club-salto']},
- {n:'Centro de Estudios Náuticos',d:'Montevideo',z:'Presencial y en línea',t:'Clases de cartas náuticas y Brevet; prácticas a demanda si el alumno tiene barco',c:[['wa','099 348 110']],s:['ignacioporrini.github.io','https://ignacioporrini.github.io/nautica.html']}
+ {k:['V'],n:'Yacht Club Uruguayo · Instituto Náutico',d:'Montevideo',z:'Puerto del Buceo',t:'Vela, navegación y actividades náuticas para todas las edades',c:[['tel','+598 99 259 782'],['tel','+598 2622 1221'],['mail','info@ycu.org.uy']],s:['ycu.org.uy/instituto_nautico','https://ycu.org.uy/instituto_nautico']},
+ {k:['V'],n:'Nautilus Yachting Club',d:'Montevideo',z:'Rambla Gandhi 530, Punta Carretas',t:'Náutica, regatas y escuela',c:[['wa','095 661 207'],['mail','nautica@nyc.com.uy'],['tel','+598 2710 1149']],s:['nyc.com.uy','https://nyc.com.uy/']},
+ {k:['V','W','S'],n:'Full Sailing (Centro Náutico de Vela Completa)',d:'Montevideo',z:'Club Náutico de Carrasco y Punta Gorda',t:'Cursos de vela y windsurf de 5 clases; alquiler de veleros, tablas, kayaks y SUP',c:[['tel','+598 99 278 878'],['mail','lucia@fullsailing.com.uy']],s:["Guru'Guay",'https://www.guruguay.com/es/alquiler-de-tabla-de-barco/']},
+ {k:['V','W','S'],n:'Punta Brava Wind & SUP',d:'Montevideo',z:'',t:'Escuela bilingüe (español e inglés) de windsurf y SUP: clases de vela, windsurf y SUP, y travesías en SUP. Bilingual school: lessons in English available.',en:true,c:[['wa','099 249 467'],['web','Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']],s:['Instagram @puntabrava_deportesnauticos','https://www.instagram.com/puntabrava_deportesnauticos/']},
+ {k:['S'],n:'Swellboards · Escuela de SUP',d:'Montevideo',z:'Playa Honda',t:'Escuela de stand up paddle de Swellboards, marca uruguaya de tablas. Dato de prensa: confirmar horarios y vigencia con la escuela.',c:[],s:['Montevideo Portal','https://www.montevideo.com.uy/Archivo/Stand-up-paddle-uno-de-los-deportes-nauticos-que-mas-crece-en-Uruguay-uc776298']},
+ {k:['V'],n:'Club La Estacada · Escuela de vela',d:'Montevideo',z:'Punta Carretas',t:'Escuela de vela. Club fundado el 1 de diciembre de 1940.',c:[['tel','2711 9075'],['mail','clubestacada@hotmail.com'],['web','Instagram @clublaestacada','https://instagram.com/clublaestacada'],['web','Facebook de la escuela','https://www.facebook.com/p/Escuela-de-Vela-Club-N%C3%A1utico-La-Estacada-61559034894935/']],s:['clublaestacada.com','https://www.clublaestacada.com/nuestro-club']},
+ {k:['V'],n:'ACAL Náutico Club',d:'Montevideo',z:'ubicación a confirmar',t:'Club náutico, sede de la flota 900 de Snipe',c:[['mail','admclub@clubacal.org.uy']],s:['contacto público del club','']},
+ {k:['V'],n:'Club Náutico de Carrasco y Punta Gorda',d:'Montevideo',z:'Punta Gorda',t:'Sede del Campeonato Nacional Individual de Optimist 2026 (AUDO 6)',c:[],s:['Viramos','https://viramos.com/championships/all']},
+ {k:['V'],n:'Club de los Balleneros',d:'Maldonado',z:'Punta Ballena',t:'Club náutico con bajada y varada de embarcaciones. Sede de la fecha AUDO 4 de Optimist en 2026.',c:[['tel','+598 4257 9254'],['tel','098 852 498']],s:['clubdelosballeneros.com.uy','https://clubdelosballeneros.com.uy/']},
+ {k:['K','W'],n:'Escuela de Kite y Windsurf Laura',d:'Maldonado',z:'Laguna Garzón',t:'Clases y alquiler de kitesurf y windsurf en la Laguna Garzón. Escuela registrada en IKO (International Kiteboarding Organization).',c:[['web','Ficha y contacto en IKO','https://www.ikointl.com/school/uruguay/maldonado/escuela-de-kite-y-windsurf-laura']],s:['IKO','https://www.ikointl.com/school/uruguay/maldonado/escuela-de-kite-y-windsurf-laura']},
+ {k:['V'],n:'Club Náutico Sudestada',d:'Rocha',z:'La Paloma',t:'Regatas, travesías y clases abiertas de deportes náuticos; regata aniversario cada fin de año.',c:[['web','cnsudestada.uy','https://www.cnsudestada.uy/']],s:['Turismo Rocha','https://turismorocha.gub.uy/eventos/2020/11/21/2do-aniversario-de-sudestada-1986']},
+ {k:['V'],n:'Yacht Club Punta del Este · Escuela',d:'Maldonado',z:'Punta del Este',t:'Escuela de vela del club',c:[['web','Facebook @ycpeescuela','https://www.facebook.com/ycpeescuela/']],s:['Facebook','https://www.facebook.com/ycpeescuela/']},
+ {k:['V','W'],n:'Yacht Club Paysandú · Escuela de vela',d:'Paysandú',z:'Av. Salto y Costanera',t:'Escuelita de Optimist para niños, cursos certificados para adolescentes y adultos, windsurf. Abierto al público, todo el año.',c:[['wa','096 230 842'],['tel','4722 2059'],['mail','ycpaysandu@gmail.com'],['web','Instagram @ycpaysandu','https://instagram.com/ycpaysandu']],s:['ycp.org.uy','https://ycp.org.uy/vela/escuela-de-vela/']},
+ {k:['V'],n:'Club Yachting y Pesca',d:'Colonia',z:'Puerto de Yates de Colonia del Sacramento',t:'Club náutico del puerto de yates de Colonia. Escuela de vela a confirmar con el club.',c:[['tel','+598 4522 6154']],s:['ANP · Puerto de Yates de Colonia','https://anp.com.uy/en/home/ports/marinas/colonia-marina']},
+ {k:['V'],n:'Club Náutico Puerto Sauce',d:'Colonia',z:'Juan Lacaze',t:'Puerto deportivo con regatas de vela en enero, febrero y abril, y la Regata del Inmigrante en setiembre. Escuela a confirmar con el club.',c:[],s:['MTOP · Puerto José Carbajal','https://www.gub.uy/ministerio-transporte-obras-publicas/comunicacion/publicaciones/puerto-jose-carbajal-sabalero-juan-lacaze-colonia']},
+ {k:['V'],n:'Yacht Club Salto',d:'Salto',z:'Bahía del Durazno, lago de Salto Grande',t:'Club con amarras en el lago de Salto Grande. Escuela de vela a confirmar con el club.',c:[],s:['PredictWind · Yacht Club Salto','https://explore.predictwind.com/es/marinas/uruguay/salto-department/yacht-club-salto']},
+ {k:['V'],n:'Centro de Estudios Náuticos',d:'Montevideo',z:'Presencial y en línea',t:'Clases de cartas náuticas y Brevet; prácticas a demanda si el alumno tiene barco',c:[['wa','099 348 110']],s:['ignacioporrini.github.io','https://ignacioporrini.github.io/nautica.html']}
 ];
 const REFS=[
  {n:'Federación Uruguaya de Yachting a Vela',t:'Federación nacional de la vela, con sede en el edificio del Yacht Club Uruguayo, Puerto del Buceo. Afiliada al Comité Olímpico Uruguayo.',l:[['fedevela@fuyv.org','']],s:['Secretaría Nacional de Deporte, listado de federaciones (2019)','https://www.gub.uy/secretaria-nacional-deporte/comunicacion/publicaciones/listado-federaciones']},
@@ -225,17 +226,21 @@ const REFS=[
  {n:'AUSAV',t:'Figura con una fecha de regata (14 y 15 de noviembre de 2026) en el calendario del Nautilus. Sitio propio no encontrado.',l:[['Aviso de regata (NYC)','https://nyc.com.uy/web/downloads/AVISO_REGATA_AUSAV.pdf']],s:['Nautilus Yachting Club','https://nyc.com.uy/']}
 ];
 const $=s=>document.querySelector(s);
+const DISC={V:'Vela',W:'Windsurf',K:'Kitesurf',S:'SUP'};let dis='Todas';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let dep='Todos';
 const deps=['Todos',...new Set(ESCUELAS.map(e=>e.d))];
+$('#disc').innerHTML=['Todas',...Object.keys(DISC)].map(k=>`<button class="chip" aria-pressed="${k===dis}" data-k="${esc(k)}">${esc(DISC[k]||k)}</button>`).join('');
 $('#deptos').innerHTML=deps.map(d=>`<button class="chip" aria-pressed="${d===dep}" data-d="${esc(d)}">${esc(d)}</button>`).join('');
 function link(c){const [k,v,u]=c;if(k==='tel')return `<a href="tel:${v.replace(/\s/g,'')}">☎ ${esc(v)}</a>`;if(k==='wa')return `<a href="https://wa.me/598${v.replace(/\D/g,'').replace(/^0/,'')}" target="_blank" rel="noopener">WhatsApp ${esc(v)}</a>`;if(k==='mail')return `<span>${esc(v)}</span>`;return `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(v)}</a>`}
 function src(s){return s[1]?`Fuente: <a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`:`Fuente: ${esc(s[0])}`}
 function render(){const q=$('#q').value.trim().toLowerCase();
- const list=ESCUELAS.filter(e=>(dep==='Todos'||e.d===dep)&&(!q||(e.n+' '+e.d+' '+e.z+' '+e.t).toLowerCase().includes(q)));
- $('#lista').innerHTML=list.length?list.map(e=>`<div class="card"><div class="meta"><span>${esc(e.d)}</span>${e.z?`<span>${esc(e.z)}</span>`:''}</div><h3>${esc(e.n)}${e.en?' <span class="tag">clases en inglés</span>':''}</h3><p>${esc(e.t)}</p>${e.c.length?`<div class="contacts">${e.c.map(link).join('')}</div>`:'<p class="note">Contacto: consultar en la sede del club.</p>'}<p class="src">${src(e.s)} · revisado 16/11/2026</p></div>`).join(''):'<p class="note">No hay escuelas con ese filtro todavía.</p>';
- document.querySelectorAll('#deptos .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.d===dep))}
+ const list=ESCUELAS.filter(e=>(dep==='Todos'||e.d===dep)&&(dis==='Todas'||e.k.includes(dis))&&(!q||(e.n+' '+e.d+' '+e.z+' '+e.t+' '+e.k.map(k=>DISC[k]).join(' ')).toLowerCase().includes(q)));
+ $('#lista').innerHTML=list.length?list.map(e=>`<div class="card"><div class="meta"><span>${esc(e.d)}</span>${e.z?`<span>${esc(e.z)}</span>`:''}<span>${e.k.map(k=>esc(DISC[k])).join(' · ')}</span></div><h3>${esc(e.n)}${e.en?' <span class="tag">clases en inglés</span>':''}</h3><p>${esc(e.t)}</p>${e.c.length?`<div class="contacts">${e.c.map(link).join('')}</div>`:'<p class="note">Contacto: consultar en la sede del club.</p>'}<p class="src">${src(e.s)} · revisado 16/11/2026</p></div>`).join(''):'<p class="note">No hay escuelas con ese filtro todavía.</p>';
+ document.querySelectorAll('#deptos .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.d===dep));
+ document.querySelectorAll('#disc .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===dis))}
 $('#deptos').addEventListener('click',e=>{const b=e.target.closest('[data-d]');if(!b)return;dep=b.dataset.d;render()});
+$('#disc').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;dis=b.dataset.k;render()});
 $('#q').addEventListener('input',render);
 $('#refs').innerHTML=REFS.map(r=>`<div class="card"><h3>${esc(r.n)}</h3><p>${esc(r.t)}</p>${r.l.length?`<div class="contacts">${r.l.map(x=>x[1]?`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])}</a>`:`<span>${esc(x[0])}</span>`).join('')}</div>`:''}<p class="src">${src(r.s)}</p></div>`).join('');
 render();
